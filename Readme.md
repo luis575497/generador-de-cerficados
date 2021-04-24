@@ -1,6 +1,7 @@
 # Generador de Certificados
 
 ## Descripción del proyecto
+Poner descripcion
 
 ### Clonar el repositorio
 Codigo para clonar el repo
