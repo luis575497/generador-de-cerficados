@@ -34,11 +34,11 @@ def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista):
 
     # Texto central
     parrafo = document.add_paragraph()
-    parrafo1 = parrafo.add_run('Que la/el estudiante ')
+    parrafo1 = parrafo.add_run('Que ')
     parrafo2 = parrafo.add_run(f'{estudiante.upper()} ')
     parrafo3 = parrafo.add_run(' con cédula No. ')
     parrafo4 = parrafo.add_run(f'{cedula}, ')
-    parrafo5 = parrafo.add_run(f' alumna/o de la {facultad}, {carrera}, no adeuda ningún bien, ni material bibliográfico en esta dependencia.')
+    parrafo5 = parrafo.add_run(f' estudiante de la {facultad}, {carrera}, no adeuda ningún bien, ni material bibliográfico en esta dependencia.')
     parrafo.add_run('\n')
     parrafo.add_run('\n')
     parrafo.add_run('\n')
@@ -70,7 +70,7 @@ def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista):
     fuente_ciudad_fecha.name = "Arial"
     formato_ciudad_fechas = ciudad_fechas.paragraph_format
     formato_ciudad_fechas.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    
+
     ciudad_fecha = document.add_paragraph()
     ciudad_fecha.add_run('\n')
     ciudad_fecha.add_run('\n')

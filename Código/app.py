@@ -9,11 +9,11 @@ from tkinter import ttk
 import datetime
 
 # Variables de datos
-paraiso_esp = '________________________________________\nLcda. Denisse Artiles Banguela\nEspecialista de Biblioteca Campus Paraíso \n CDR “Juan Bautista Vázquez”'
+paraiso_esp = '________________________________________\nLcda. Marghot Elizabeth Maza\nEspecialista de Biblioteca Campus Paraíso \n CDR “Juan Bautista Vázquez”'
 central_esp = '________________________________________\nLcda. Ximena Carrasco Aguilar\nEspecialista de Biblioteca Campus Central \n CDR “Juan Bautista Vázquez”'
-yanuncay_esp = '________________________________________\nLcda. Rocío Campoverde Carpio, Mg.\nEspecialista de Biblioteca Campus Yanuncay \n CDR “Juan Bautista Vázquez”'
-coordinacion = '________________________________________\nLcda. Diana Fajardo Pasán, Mg.\nCoordinadora General \n CDR “Juan Bautista Vázquez”'
-centrohist = '________________________________________\nLcda. Diana León Bravo\nBibliotecaria Campus Centro Histórico\n CDR “Juan Bautista Vázquez”'
+yanuncay_esp = '________________________________________\nLcda. Ximena Carrasco Aguilar\nEspecialista de Biblioteca Campus Yanuncay \n CDR “Juan Bautista Vázquez”'
+coordinacion = '________________________________________\nLcda. Rocío Campoverde Carpio, Mg.\nCoordinadora General \n CDR “Juan Bautista Vázquez”'
+centrohist = '________________________________________\nLcda. Diana Fajardo Pasán \nBibliotecaria Campus Centro Histórico\n CDR “Juan Bautista Vázquez”'
 # Facultades
 facultades = {"Arquitectura y Urbanismo":["Arquitectura"], 
               "Artes":["Diseño Gráfico","Diseño de interiores","Artes Visuales","Artes Músicales","Artes Escénicas"],
