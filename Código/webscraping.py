@@ -7,8 +7,8 @@ import word
 import registro
 import datetime
 
-def datos_handle(hdl,especialista,grado,maestria,referencista):
-    handle = hdl
+def datos_handle(hdl,especialista,grado,maestria,referencista, modalidad):
+    handle = hdl.strip()
     fecha_hora = datetime.datetime.now()
     fecha = str(fecha_hora.date())
     hora = str(fecha_hora.time())
@@ -42,13 +42,13 @@ def datos_handle(hdl,especialista,grado,maestria,referencista):
         carrera_o_maestria = 'de la ' + maestria
 
     if len(autores) == 2:
-        word.crear_certificado(estudiante = autores[0],cedula = cedulas[0],facultad = facultad ,carrera = carrera_o_maestria,handle = handle,especialista = especialista)
-        word.crear_certificado(estudiante = autores[1],cedula = cedulas[1],facultad = facultad ,carrera = carrera_o_maestria,handle = handle,especialista = especialista)
+        word.crear_certificado(estudiante = autores[0],cedula = cedulas[0],facultad = facultad ,carrera = carrera_o_maestria,handle = handle,especialista = especialista, modalidad = modalidad)
+        word.crear_certificado(estudiante = autores[1],cedula = cedulas[1],facultad = facultad ,carrera = carrera_o_maestria,handle = handle,especialista = especialista, modalidad = modalidad)
         registro.insertar_datos(fecha = fecha , hora = hora ,name = autores[0] , ci = cedulas[0] , facultad = facultad, carr_o_maes = carrera_o_maestria, hdl = handle, firma = especialista,tipo_cert="Trabajo de titulacion",referencista = referencista)
         registro.insertar_datos(fecha = fecha , hora = hora ,name = autores[1] , ci = cedulas[1] , facultad = facultad, carr_o_maes = carrera_o_maestria, hdl = handle, firma = especialista,tipo_cert="Trabajo de titulacion", referencista = referencista)
 
     else:
-        word.crear_certificado(estudiante = autores[0],cedula = cedulas[0],facultad = facultad ,carrera = carrera_o_maestria,handle = handle,especialista = especialista)
+        word.crear_certificado(estudiante = autores[0],cedula = cedulas[0],facultad = facultad ,carrera = carrera_o_maestria,handle = handle,especialista = especialista, modalidad = modalidad)
         registro.insertar_datos(fecha = fecha , hora = hora ,name = autores[0] , ci = cedulas[0] , facultad = facultad, carr_o_maes = carrera_o_maestria, hdl = handle, firma = especialista,tipo_cert="Trabajo de titulacion", referencista = referencista)
     return True
 

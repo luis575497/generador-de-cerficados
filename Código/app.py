@@ -41,8 +41,9 @@ def seleccionfac(values):
 def certificado():
     handl = cajahandle.get()
     nombre_maestria = caja_maestria.get()
+    
     try:
-        webscraping.datos_handle(hdl = handl, especialista = espe.get(),grado = grado.get(), maestria = nombre_maestria,referencista= referencista.get())
+        webscraping.datos_handle(hdl = handl, especialista = espe.get(),grado = grado.get(), maestria = nombre_maestria,referencista= referencista.get(), modalidad = virtual.get())
         etiqueta_datos = Label(pest_tesis, text = "  Su Certificado se ha generado exitosamente  ")
         etiqueta_datos.grid(row = 3, column = 0, columnspan = 2)
         cajahandle.delete(0, END)
@@ -189,7 +190,7 @@ def cert_movilidad_complexivo():
 if __name__ == "__main__":
     # Crear Ventana Principal
     ventana = Tk()
-    ventana.geometry("350x635")
+    ventana.geometry("350x680")
     ventana.resizable(width=0, height=0)
     ventana.title('Certificado de no Adeudar')
 
@@ -271,8 +272,26 @@ if __name__ == "__main__":
 
     referencista = Entry(frame_referencista, font="Helvetica 20")
     referencista.grid(row=0, column=0, columnspan = 2, pady = 3)
+    
+    # 
+    # Frame para selecionar si es un certificado virtual o impreso
+    #
+    
+    caract_certificado = LabelFrame(pest_tesis,text='Características del certificado') 
+    caract_certificado.grid(row=10, column=0, padx=10,pady=5)
+
+    virtual = StringVar()
+    virtual.set("digital") # Valor predeterminado para el certificado virtual
+
+    virtual_but = Radiobutton(caract_certificado, text="Certif. Virtual", variable = virtual, value = "digital")
+    virtual_but.grid(row = 0, column = 0, sticky = "w")
+    
+    impreso_but = Radiobutton(caract_certificado, text="Certif. Impreso", variable = virtual, value = "impreso")
+    impreso_but.grid(row = 1, column = 0, sticky = "w")
+    
+    
     boton_exit = Button(pest_tesis, text = 'Salir', padx = 40, pady = 5, command=ventana.destroy)
-    boton_exit.grid(row = 10, column = 0, sticky='w', pady=5, padx=15)
+    boton_exit.grid(row = 11, column = 0, sticky='w', pady=5, padx=15)
 
 #
 #   Certificados por Movilidad
@@ -366,8 +385,9 @@ if __name__ == "__main__":
     
     frame_referencista_mov = LabelFrame(pest_movil, text = 'Referencista')
     frame_referencista_mov.grid( row = 15, column=0, columnspan=2, padx=10)
-
+    
     referencista_mov = Entry(frame_referencista_mov, font="Helvetica 20")
     referencista_mov.grid(row=0, column=0, columnspan = 2, pady = 3)
+    
 
     ventana.mainloop()

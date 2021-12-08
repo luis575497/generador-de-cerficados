@@ -6,7 +6,7 @@ import datetime
 from docx.shared import Pt
 from os import remove
 
-def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista):
+def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista, modalidad):
     # Funcion para poner el mes
     def mes(num):
         meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
@@ -103,10 +103,11 @@ def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista):
     font_link.size = Pt(12)
     font_link.name = "Arial"
     font_link.bold = True
-    nota = link_tt.add_run('\n\nNota: Certificado digital emitido de forma extraordinaria por la emergencia sanitaria COVID-19; razón por la cual no consta el sello de la dependencia.')
-    font_nota = nota.font
-    font_nota.name = "Arial"
-    font_nota.size = Pt(12)
+    if modalidad == "digital":
+        nota = link_tt.add_run('\n\nNota: Certificado digital emitido de forma extraordinaria por la emergencia sanitaria COVID-19; razón por la cual no consta el sello de la dependencia.')
+        font_nota = nota.font
+        font_nota.name = "Arial"
+        font_nota.size = Pt(12)
 
     # Crear el documento si no existe previamente
     try:
