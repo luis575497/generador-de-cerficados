@@ -163,6 +163,7 @@ def cert_movilidad_complexivo():
         nombre = cajanombre_movilidad.get()
         cedula = caja_cedula.get()
         fac = "Facultad de " + lista_facultad.get()
+
         if grado_m.get() == 0:
             carr = "Carrera de " + lista_carrera.get()
         else:
@@ -175,7 +176,7 @@ def cert_movilidad_complexivo():
         else:
             tipo_certificado = "Ex. Complexivo"
         
-        word.crear_certificado(estudiante=nombre,cedula=cedula,facultad=fac,carrera=carr,handle=mov_o_compl,especialista=firma)
+        word.crear_certificado(estudiante=nombre,cedula=cedula,facultad=fac,carrera=carr,handle=mov_o_compl,especialista=firma, modalidad = virtual.get())
         registro.insertar_datos(fecha = fecha , hora = hora ,name = nombre , ci = cedula , facultad = fac, carr_o_maes = carr, hdl = "", firma = firma, tipo_cert=tipo_certificado,referencista = ref)
         
         cajanombre_movilidad.delete(0, END)
@@ -384,10 +385,30 @@ if __name__ == "__main__":
     cert_mov_compl.grid(row=11, column=1)
     
     frame_referencista_mov = LabelFrame(pest_movil, text = 'Referencista')
-    frame_referencista_mov.grid( row = 15, column=0, columnspan=2, padx=10)
+    frame_referencista_mov.grid( row = 16, column=0, columnspan=2, padx=10)
     
     referencista_mov = Entry(frame_referencista_mov, font="Helvetica 20")
     referencista_mov.grid(row=0, column=0, columnspan = 2, pady = 3)
     
+    # 
+    # Frame para selecionar si es un certificado virtual o impreso
+    #
+    
+    caract_certificado = LabelFrame(pest_movil,text='Características del certificado') 
+    caract_certificado.grid(row=15, column=0, padx=10,pady=5)
+
+    virtual = StringVar()
+    virtual.set("digital") # Valor predeterminado para el certificado virtual
+
+    virtual_but = Radiobutton(caract_certificado, text="Certif. Virtual", variable = virtual, value = "digital")
+    virtual_but.grid(row = 0, column = 0, sticky = "w")
+    
+    impreso_but = Radiobutton(caract_certificado, text="Certif. Impreso", variable = virtual, value = "impreso")
+    impreso_but.grid(row = 1, column = 0, sticky = "w")
+    
+    
+    boton_exit = Button(pest_tesis, text = 'Salir', padx = 40, pady = 5, command=ventana.destroy)
+    boton_exit.grid(row = 11, column = 0, sticky='w', pady=5, padx=15)
+
 
     ventana.mainloop()
