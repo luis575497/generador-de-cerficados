@@ -6,7 +6,7 @@ import datetime
 from docx.shared import Pt
 from os import remove
 
-def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista, modalidad):
+def crear_certificado(estudiante,cedula,facultad,carrera,handle,especialista, modalidad="digital"):
     # Funcion para poner el mes
     def mes(num):
         meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
