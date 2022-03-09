@@ -64,7 +64,7 @@ def certificado():
     nombre_maestria = caja_maestria.get()
     
     try:
-        webscraping.datos_handle(hdl = handl, especialista = espe.get(),grado = grado.get(), maestria = nombre_maestria,referencista= referencista.get(), modalidad = virtual.get())
+        webscraping.datos_handle(hdl = handl, especialista = espe.get(), maestria = nombre_maestria,referencista= referencista.get(), modalidad = virtual.get())
         etiqueta_datos = Label(pest_tesis, text = "  Su Certificado se ha generado exitosamente  ")
         etiqueta_datos.grid(row = 3, column = 0, columnspan = 2)
         cajahandle.delete(0, END)
