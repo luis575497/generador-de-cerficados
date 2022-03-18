@@ -64,6 +64,7 @@ def certificado():
     nombre_maestria = caja_maestria.get()
     
     try:
+        print(nombre_maestria)
         webscraping.datos_handle(hdl = handl, especialista = espe.get(), maestria = nombre_maestria,referencista= referencista.get(), modalidad = virtual.get())
         etiqueta_datos = Label(pest_tesis, text = "  Su Certificado se ha generado exitosamente  ")
         etiqueta_datos.grid(row = 3, column = 0, columnspan = 2)
@@ -294,11 +295,10 @@ if __name__ == "__main__":
 
     referencista = Entry(frame_referencista, font="Helvetica 20")
     referencista.grid(row=0, column=0, columnspan = 2, pady = 3)
-    
+
     # 
     # Frame para selecionar si es un certificado virtual o impreso
     #
-    
     caract_certificado = LabelFrame(pest_tesis,text='Características del certificado') 
     caract_certificado.grid(row=10, column=0, padx=10,pady=5)
 
@@ -307,11 +307,10 @@ if __name__ == "__main__":
 
     virtual_but = Radiobutton(caract_certificado, text="Certif. Virtual", variable = virtual, value = "digital")
     virtual_but.grid(row = 0, column = 0, sticky = "w")
-    
+
     impreso_but = Radiobutton(caract_certificado, text="Certif. Impreso", variable = virtual, value = "impreso")
     impreso_but.grid(row = 1, column = 0, sticky = "w")
-    
-    
+
     boton_exit = Button(pest_tesis, text = 'Salir', padx = 40, pady = 5, command=ventana.destroy)
     boton_exit.grid(row = 11, column = 0, sticky='w', pady=5, padx=15)
 

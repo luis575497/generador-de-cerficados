@@ -32,11 +32,11 @@ def get_data(handle: str, postgrado: str) -> tuple:
     lista_coleccion = limpiar_html(str(colecciones)).split('\n')
     datos_certificado['facultad'] = lista_coleccion[3]
     datos_certificado["handle"] = "Link: " + handle
-
-    if postgrado != None:
+    
+    if postgrado == "":
         datos_certificado['carrera_maestria'] = "Carrera de " + lista_coleccion[4]
     else:
-        datos_certificado['carrera_maestria'] = "de la" + maestria
+        datos_certificado['carrera_maestria'] = "de la " + postgrado
 
     estudiantes = []
     cant_estudiantes = len(datos_certificado['nombre'])
